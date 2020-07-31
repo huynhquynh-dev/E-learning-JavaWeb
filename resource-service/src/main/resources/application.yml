@@ -1,0 +1,43 @@
+server:
+    port: 9999
+
+spring:
+    application:
+        name: resource-service
+    datasource:
+        url: jdbc:mysql://localhost:3306/elearninguaaresourcedb
+        username: root
+        password: Hq2018
+    jpa:
+        database: MYSQL
+        generate-ddl: true
+        hibernate.ddl-auto: none
+        show-sql: true
+        properties:
+            hibernate:
+                format_sql: true
+                dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+
+security:
+    oauth2:
+        client:
+            clientId: USER_CLIENT_APP
+            clientSecret: password
+            accessTokenUri: http://localhost:6789/oauth/token
+            userAuthorizationUri: http://localhost:6789/oauth/authorize
+            grantType: authorization_code,password,refresh_token,implicit
+            scope: INTERNAL
+        resource:
+            tokenInfoUri: http://localhost:6789/oauth/check_token
+            userInfoUri: http://localhost:6789/details
+            jwt:
+                key-value: |
+                    -----BEGIN PUBLIC KEY-----
+                    MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAgnEzp25qlRJqe/IWf88o
+                    lfkOl9a7tX4wgDrLLzguzMIAHdLv2do1qb48nPJPJYElD6wVTguokOTOND+4oFzJ
+                    Oob/t/6cQ65gPCXVo8OfN1jrternBEIu9t2FuSmn/Ica+JvIZ4NJFz1UnxY1fYGv
+                    WMjsMwpOZk8uU39Pu8ywyyaRPXYi0Sbk8vj35GjdwkhshBOUaE45JlZpBms6HerY
+                    45TBbHTiC9hFQ8slwEd8DIsLYhSlogmCC7hciOVlNEJxUoumq1M20wlizkWhxCyM
+                    Q/5OZMLDBzhK7+lgp9M3ZUdJFOgNKbkR/gdktWC4RZxp90t+Ztct6pHoNz5K/0ji
+                    ZwIDAQAB
+                    -----END PUBLIC KEY-----

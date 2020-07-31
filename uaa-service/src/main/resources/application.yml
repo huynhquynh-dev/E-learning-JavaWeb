@@ -1,0 +1,35 @@
+server:
+    port: 6789
+
+spring:
+    application:
+        name: auth-service
+    datasource:
+        url: jdbc:mysql://localhost:3306/elearninguaaresourcedb
+        username: root
+        password: Hq2018
+    jpa:
+        database: MYSQL
+        generate-ddl: true
+        hibernate.ddl-auto: none
+        show-sql: true
+        properties:
+            hibernate:
+                format_sql: true
+                dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+
+    mail:
+        default-encoding: UTF-8
+        host: smtp.gmail.com
+        username: hqdev.pro@gmail.com
+        password: quynh.huynh
+        port: 587
+        properties:
+            mail:
+                smtp:
+                    auth: true
+                    starttls:
+                        enable: true
+        protocol: smtp
+        test-connection: false
+
